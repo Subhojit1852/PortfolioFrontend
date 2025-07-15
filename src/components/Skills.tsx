@@ -1,5 +1,5 @@
 // components/Skills.tsx
-import { useState, type Key } from 'react';
+import { useState } from 'react';
 import {  Typography, Chip, Box, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
@@ -109,7 +109,7 @@ const Skills = () => {
         />
       ) :view === 'list' ?(
        <Grid container spacing={2}>
-          {skills.map((skill: { name: Key | null | undefined; value: any; }) => (
+          {skills.map((skill) => (
             <Grid  key={skill.name}>
               <Chip
                 label={`${skill.name} (${skill.value}%)`}

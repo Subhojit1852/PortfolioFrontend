@@ -1,0 +1,134 @@
+.cyberpunk-terminal {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+   @media (min-width: 768px) {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.terminal-icon {
+  cursor: pointer;
+  background: rgba(0, 15, 20, 0.8);
+  border: 1px solid #00ffc3;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #00ffc3;
+}
+
+.pulse-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ff00ff;
+  border-radius: 50%;
+  top: -2px;
+  right: -2px;
+  animation: pulse 2s infinite;
+}
+
+.terminal-window {
+  background: rgba(10, 5, 20, 0.95);
+  border: 1px solid #00ffc3;
+  width: 280px;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  width: calc(100vw - 40px); /* Full width minus padding on mobile */
+  max-width: 280px; /* Original size on desktop */
+  
+  @media (min-width: 768px) {
+    width: 280px;
+  }
+}
+
+.terminal-header {
+  background: linear-gradient(90deg, #0a0a20, #003330);
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #00ffc3;
+}
+
+.terminal-body {
+  padding: 15px;
+  color: #00ffc3;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.stat-icon {
+  margin-right: 10px;
+  color: #ff00ff;
+}
+
+.stat-label {
+  margin-right: 8px;
+  opacity: 0.8;
+}
+
+.stat-value {
+  color: #00ffc3;
+  font-weight: bold;
+}
+
+.hack-button {
+  background: transparent;
+  border: 1px solid #ff00ff;
+  color: #ff00ff;
+  padding: 8px;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.hack-button:hover {
+  background: rgba(255, 0, 255, 0.1);
+  text-shadow: 0 0 5px #ff00ff;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+.glitch {
+  animation: glitch 0.5s linear infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes glitch {
+  0% { filter: drop-shadow(0 0 2px #00ffc3); }
+  25% { filter: drop-shadow(-2px 0 2px #ff00ff); }
+  50% { filter: drop-shadow(0 0 2px #00ffc3); }
+  75% { filter: drop-shadow(2px 0 2px #ff00ff); }
+  100% { filter: drop-shadow(0 0 2px #00ffc3); }
+}
+
+.cyber-text {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

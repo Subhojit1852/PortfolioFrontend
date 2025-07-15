@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSkill, addSkill, removeSkill } from '../redux/skillsSlice';
 import {
@@ -17,7 +17,7 @@ import type { RootState } from '../redux/store';
 const SkillPointsEditor = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  // const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const { skills, usedPoints, totalPoints } = useSelector((state: RootState) => state.skills);
   const dispatch = useDispatch();
   const [newSkill, setNewSkill] = useState('');

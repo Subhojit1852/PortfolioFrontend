@@ -5,7 +5,7 @@ import { Text, OrbitControls, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../redux/store';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 const SkillTower = ({ name, value, position, color, hovered, setHovered }: { 
   name: string; 
@@ -67,7 +67,6 @@ const SkillTower = ({ name, value, position, color, hovered, setHovered }: {
 const SkillMatrixScene = () => {
   const skills = useSelector((state: RootState) => state.skills.skills);
   const [hovered, setHovered] = useState<string | null>(null);
-  const theme = useTheme();
   
   // Arrange skills in a grid
   const gridSize = Math.ceil(Math.sqrt(skills.length));

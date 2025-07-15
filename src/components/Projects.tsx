@@ -51,6 +51,7 @@ nodeRefs.current[i] = React.createRef() as NonNullableRef<HTMLDivElement>;
     const newPositions = [...positions];
     newPositions[index] = { x: data.x, y: data.y };
     setPositions(newPositions);
+    console.log(e);
   };
 
   const handleStop = (index: number) => {
@@ -107,10 +108,11 @@ nodeRefs.current[i] = React.createRef() as NonNullableRef<HTMLDivElement>;
             position={swapAnimation?.active ? { x: 0, y: 0 } : positions[index]}
             bounds="parent"
             handle=".drag-handle"
-            onDrag={(e, data) => handleDrag(index, e, data)}
+            onDrag={(e, data) => handleDrag(index,e, data)}
             onStop={() => handleStop(index)}
             onStart={() => setActiveDrag(index)}
           >
+            
             <div
               ref={nodeRefs.current[index]}
               style={{

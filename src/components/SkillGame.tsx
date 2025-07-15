@@ -1,5 +1,5 @@
 // components/SkillGame.tsx
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Box, Button, Typography, Grid } from '@mui/material';
 
 const skills = ['React', 'FastAPI', 'LangChain', 'CosmosDB', 'MSAL', 'FAISS'];
@@ -30,7 +30,7 @@ export default function SkillGame({ loading }: { loading: boolean }) {
       </Typography>
       <Grid container spacing={2} justifyContent="center" sx={{ mt: 1 }}>
         {[0, 1, 2].map((index) => (
-          <Grid item key={index}>
+          <Grid  key={index}>
             <Button
               variant="outlined"
               sx={{

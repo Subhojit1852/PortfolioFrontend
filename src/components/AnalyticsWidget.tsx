@@ -1,6 +1,6 @@
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Box, Typography, IconButton } from '@mui/material';
+import {  Typography, IconButton } from '@mui/material';
 import { Terminal, Code, DataObject, Psychology } from '@mui/icons-material';
 import CountUp from 'react-countup';
 import './cyberpunk-styles.css'; // Custom CSS for glitch effects

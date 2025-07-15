@@ -1,13 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import skillsReducer from './skillsSlice';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-
-
-
-// store.ts
 import {
- 
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -21,21 +17,25 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, skillsReducer);
+const rootReducer = combineReducers({
+  skills: skillsReducer,
+});
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// ✅ TYPE CAST FIX HERE
 export const store = configureStore({
-  reducer: {
-    skills: persistedReducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }) as ReturnType<typeof getDefaultMiddleware>, // ← 🛠 Explicitly cast the middleware return type
 });
 
 export const persistor = persistStore(store);
-// Use type-only imports for these types
+
+// Types
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
